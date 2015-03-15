@@ -994,7 +994,8 @@ xyplot(average_steps~interval | day_type
    , main="Time Series Plot of Average Steps Taken Weekdays vs Weekend days"
    , ylab="Average Steps Taken"
    , xlab="Interval"
-   , type="l")
+   , type="l"
+   , layout=c(1,2))
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-20-1.png) 
