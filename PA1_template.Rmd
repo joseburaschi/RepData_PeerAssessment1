@@ -186,19 +186,28 @@ median(stepsPerDay$total_steps)
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.
-
-dataNew$dayOfWeek <- weekdays(dataNew$date_recorded)
-
-dataNew$dayType <- ifelse(dataNew$dayOfWeek == "Saturday" | dataNew$dayOfWeek =="Sunday","Weekend", "Weekday")
-
 Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
+```{r echo = TRUE}
+dataNew$day_of_week <- weekdays(dataNew$date_recorded)
+dataNew$day_type <- ifelse(dataNew$day_of_week == "Saturday" | dataNew$day_of_week =="Sunday","Weekend", "Weekday")
+```
 
-Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
+Calculate Average by dayType and Interval
+```{r echo = TRUE}
+# Calculate Steps Taken Per Day and Assign Column Names to the Result
+stepsPerDay <- aggregate(dataNew$steps, by=list(dataNew$day_type, dataNew$interval), FUN=mean, na.rm = TRUE)
+colnames(stepsPerDay) <- c("day_type","interval", "average_steps")
+stepsPerDay
+```
 
+Create the plot
+```{r echo = TRUE}
 library(lattice) 
-xyplot(mpg~wt|cyl.f*gear.f, 
-    main="Scatterplots by Cylinders and Gears", 
-   ylab="Miles per Gallon", xlab="Car Weight")
-
+xyplot(average_steps~interval | day_type
+   , data=stepsPerDay
+   , main="Time Series Plot of Average Steps Taken Weekdays vs Weekend days"
+   , ylab="Average Steps Taken"
+   , xlab="Interval"
+   , type="l")
+```
 
