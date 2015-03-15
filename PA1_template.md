@@ -16,10 +16,10 @@ Use the following code to set the working directory:
 
 
 ```r
-scriptWorkingDirectory = "/Users/user1/RepData_PeerAssessment1"
-scriptWorkingDirectory = "/Users/jaburaschi/DataScience/Coursera/DS-ReproducibleResearch/Project1/RepData_PeerAssessment1"
+#scriptWorkingDirectory = "/Users/user1/RepData_PeerAssessment1"
 
-setwd(scriptWorkingDirectory)
+#setwd(scriptWorkingDirectory)
+knitr::opts_chunk$set(echo=FALSE, fig.path='figure/plot-', cache=FALSE)
 ```
 
 ###Loading Activity Monitor Data###
@@ -160,7 +160,7 @@ hist(  stepsPerDay$total_steps
      , breaks = 10)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![](figure/plot-unnamed-chunk-5-1.png) 
 
 ###Mean Steps Taken per Day###
 The mean steps taken per day is calculated immediately below:
@@ -200,7 +200,7 @@ plot(   x=meanStepsPerInterval$interval
      )
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![](figure/plot-unnamed-chunk-8-1.png) 
 
 ###Max Number of Steps Interval###
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -357,7 +357,7 @@ hist(  stepsPerDay$total_steps
      , breaks = 10)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-15-1.png) 
+![](figure/plot-unnamed-chunk-15-1.png) 
 
 ###Do these values differ from the estimates from the first part of the assignment? ###
 Yes, the values differ from the estimates in the first part of the assignments where the rows with NA values were ignored.
@@ -998,5 +998,5 @@ xyplot(average_steps~interval | day_type
    , layout=c(1,2))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-20-1.png) 
+![](figure/plot-unnamed-chunk-20-1.png) 
 

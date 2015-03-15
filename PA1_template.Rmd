@@ -20,10 +20,10 @@ After cloning the repo or downloading the repo files and installing them in your
 Use the following code to set the working directory:
 
 ```{r echo = TRUE}
-scriptWorkingDirectory = "/Users/user1/RepData_PeerAssessment1"
-scriptWorkingDirectory = "/Users/jaburaschi/DataScience/Coursera/DS-ReproducibleResearch/Project1/RepData_PeerAssessment1"
+#scriptWorkingDirectory = "/Users/user1/RepData_PeerAssessment1"
 
-setwd(scriptWorkingDirectory)
+#setwd(scriptWorkingDirectory)
+knitr::opts_chunk$set(echo=FALSE, fig.path='figure/plot-', cache=FALSE)
 ```
 
 ###Loading Activity Monitor Data###
